@@ -23,11 +23,13 @@ writeFile(
 );
 */
 
+
+
 function Home() {
+
   return (
     <main>
       <h1>Welcome!</h1>
-      <p>You are visitor number X.</p>
     </main>
   );
 }
