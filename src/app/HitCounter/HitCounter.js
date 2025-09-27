@@ -1,5 +1,15 @@
+'use client'
 import React from 'react';
-import { styles } from './styles'
+
+import {
+  readFile,
+  writeFile,
+} from '../../helpers/file-helpers';
+
+const DATABASE_PATH = '/src/database.json';
+
+
+const [isCensored, setIsCensored] = React.useState(false)
 
 function HitCounter() {
   let { hits } = JSON.parse(
@@ -11,10 +21,9 @@ function HitCounter() {
   writeFile(DATABASE_PATH, JSON.stringify({hits}))
   return (
     <main>
-      <h1>Welcome!</h1>
-      <div>You are visitor number</div>
-
-        <button className="censored">{hits}.</button>
+      <p> you are visitor number
+        <button className={isCensored ? "censored" : undefined}>{hits}.</button>
+        </p>
     </main>
   );
 }
